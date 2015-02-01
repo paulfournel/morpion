@@ -54,40 +54,25 @@ class Morpion:
                 outString = outString + "\n"
             else:
                 outString = outString + " | "
-
         print(outString)
 
-class SimulateRandomGame:
-    def __init__(self):
+class SimulateGame:
+    def __init__(self, player1, player2):
         self.game = Morpion()
-        self.trainingSet = []
+        self.player1 = player1
+        self.player2 = player2
         self.player = 1
     def play(self):
-        gameBefore = self.game.board
         freeSpaces = self.game.getFreeSpaces()
-        moveResult = self.game.play(self.player,random.choice(freeSpaces))
         if self.player == 1:
-            self.trainingSet.append(gameBefore+self.game.board)
+            choice = self.player1.getMove(freeSpaces, self.game)
+        else:
+            choice = self.player2.getMove(freeSpaces, self.game)
+        moveResult = self.game.play(self.player,choice)
         self.player = self.player * (-1)
-        #self.game.printGame()
         return moveResult
     def run(self):
         gameEnd = self.play()
         while gameEnd == -10:
             gameEnd = self.play()
         return gameEnd
-
-result = []
-for x in range(1000):
-    morp = SimulateRandomGame()
-    gameResult = morp.run()
-    result.append(gameResult)
-
-victoire = 1.0*sum([1 for x in result if x == 1])/len(result)
-defaite = 1.0*sum([1 for x in result if x == -1])/len(result)
-nulle = 1.0*sum([1 for x in result if x == 0])/len(result)
-
- 
-print(str(victoire) + " parties gagnees")
-print(str(defaite) + " parties perdues")
-print(str(nulle) + " parties nulles")
