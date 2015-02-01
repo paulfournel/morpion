@@ -1,4 +1,4 @@
-# morpion
+# Tic Tac Toe
 Hi this respository is a little contest. We want to make the best machine learning tic tac toe possible. To participate, please fork the branch and create you very own AI Player. It should follow this model:
 
 ````
