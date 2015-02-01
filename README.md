@@ -17,10 +17,10 @@ x | x |
 ```
 
 `getMove(self, freeSpaces, game)`
-<br>
-input:
-- `freeSpaces` is a list of the index of freespaces where your player is allowed to play. In the previous example it would be `[2, 3, 5, 6, 7]`.
-- `game` is the board layout. A array of length 9. (example: '[1,1,0,-1,0,0,0,0,-1]').  1 for player 1 and -1 for player 2.
 
-return:
+**Input:**
+- `freeSpaces` is a list of the index of freespaces where your player is allowed to play. In the previous example it would be `[2, 3, 5, 6, 7]`.
+- `game` is the board layout. A array of length 9. (example: `[1,1,0,-1,0,0,0,0,-1]`).  1 for player 1 and -1 for player 2.
+
+**Return:**
 - `Integer`: the function should return an element of the freeSpaces. If the return value is not in the array, the script will throw an exception.
